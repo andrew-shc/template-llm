@@ -15,7 +15,7 @@
 - Any code you run should load `.env` automatically via the environment (`python-dotenv`, `direnv`, shell `source .env`, etc.) — don't have an agent parse or relay its contents.
 - If a codebase/script you're working in doesn't already auto-load `.env`, set that up yourself (e.g. add `load_dotenv()`, wire up `direnv`) rather than reading `.env` manually or asking the user to paste secrets into the conversation.
 
-## Data (ASSETS/) — strict separation, no exceptions
+## Data (ASSETS/)
 - All data, in the most general sense (evaluation results/JSON, 3D data: PLY/OBJ/GLB, 2D data: EXR/PNG/JPG, checkpoints, logs, renders, etc.), belongs in `./ASSETS/` at the repo root.
 - This rule has **no "it's cleaner to keep it local" exception.** Even if a script's own directory structure feels like the natural place for its output (e.g. a vendored repo's own `output/` or `results/` convention), the data still goes under `./ASSETS/`. If you need to preserve that structure for clarity, **mirror the codebase's folder layout inside `ASSETS/`** (e.g. `TensoSDF/run_training.py` → output under `ASSETS/TensoSDF/...`, not `TensoSDF/output/...`). The point is strict separation of data from execution/code paths, always.
 

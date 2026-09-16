@@ -1,3 +1,28 @@
+# Extensionless files are ignored by default (catches vendored build
+# binaries without extensions) — directories and any
+# file with a dot in its name are exempted so this doesn't swallow
+# ordinary tracked files.
+*
+!*/
+!*.*
+
+.env
+/ASSETS/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.Python
+build/
+dist/
+
+# Vendored sample/example assets bundled with cloned repos.
+**/examples/
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
